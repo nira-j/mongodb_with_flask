@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %} 
+<ul>
+    <li><button><a href="{{url_for('index')}}">back to home page</a></button></li>
+    <li><button><a href="{{url_for('showrecord')}}">show records</a></button></li> 
+</ul>
+<hr>
+
+    <h3>Enter Student Details</h3>
+
+<form action="/insertrecord" method="POST">
+    <label for="">Name</label>
+    <input type="text" name="stu_name" > <br><br>
+    
+    <label for="">Class</label>
+    <input type="text" name="stu_class"> <br><br>
+    
+    <label for="">RollNo</label>
+    <input type="text" name="stu_roll"> <br><br>
+    
+    <label for="">Gender</label>
+    <input type="text" name="stu_gen"> <br><br>
+    
+    <label for="">College Name</label>
+    <input type="text" name="stu_col"> <br><br>
+    
+    <label for="">Contact</label>
+    <input type="text" name="stu_con"> <br><br>
+    
+    <button type="submit">Submit</button>
+</form>
+
+
+{% endblock %}

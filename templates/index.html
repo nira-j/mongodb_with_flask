@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %} 
+<ul>
+    <li><button><a href="{{ url_for('insertrecord') }}">insert record</a></button></li>
+    <li><button><a href="{{ url_for('showrecord') }}">show records</a></button></li>
+</ul>
+<hr>
+{% endblock %}
+
