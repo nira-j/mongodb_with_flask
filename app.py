@@ -52,4 +52,4 @@ def showrecord():
         out.append(o)
     return render_template("show.html",output=out)
 
-app.run(debug=True, host="192.168.43.226")
+app.run(debug=True, host="10.160.0.6")
