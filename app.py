@@ -1,7 +1,5 @@
 from flask import Flask, request,redirect, url_for, render_template, jsonify
 from pymongo import MongoClient
-from wtforms import fields
-
 
 
 app=Flask(__name__)
