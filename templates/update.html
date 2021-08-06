@@ -1,8 +1,25 @@
 {% extends "layout.html" %}
-{% block content %} 
-<ul>
-    <li>name</li>
-    <li>class</li>
-</ul>
-<hr>
+{% block content %}
+<style>
+    body{
+        align-items: center;
+    }
+
+</style>
+<body>
+    <ul>
+        <li><button><a href="{{url_for('index')}}">back to home page</a></button></li>
+        <li><button><a href="{{url_for('showrecord')}}">show records</a></button></li> 
+    </ul><br>
+  
+    <div class="form_">
+        <form action="/updaterecord" method="POST">
+        <input type="text" name="field" placeholder="Enter Field Name" > <br>
+        <input type="text" name="value" placeholder="Enter Value" ><br>
+        <input type="text" name="nvalue" placeholder="New Value" ><br>
+        <button type="submit">Update</button>
+        </form>
+
+    </div>
+</body>
 {% endblock %}

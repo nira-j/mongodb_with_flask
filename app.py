@@ -1,5 +1,8 @@
 from flask import Flask, request,redirect, url_for, render_template, jsonify
 from pymongo import MongoClient
+from wtforms import fields
+
+
 
 app=Flask(__name__)
 client=MongoClient("mongodb://127.0.0.1:27017")
@@ -30,11 +33,12 @@ def insertrecord():
         if (stu_name !="" and stu_class !="" and stu_roll !="" and stu_gen !="" and stu_col !="" and stu_con !="" ):
             out=collection.insert_one(data)
             if out:
-                return render_template("success.html")
+                return render_template("insert.html", message="One record inserted successfully!")
         else:
-            return render_template("insert.html")
+            return render_template("insert.html", message="Fill all details first")
+        
+    return render_template("insert.html",message="")
 
-    return render_template("insert.html")
 @app.route('/deleterecord/<string:obj_id>')
 def deleterecord(obj_id):
     collection.delete_one({'student name': obj_id})
@@ -42,6 +46,13 @@ def deleterecord(obj_id):
     
 @app.route('/updaterecord',methods=["POST","GET"])
 def updaterecord():
+    if request.method=="POST":
+        field=request.form.get("field")
+        value=request.form.get("value")
+        nvalue=request.form.get("nvalue")
+        out=collection.update_one({field: value},{"$set":{field: nvalue}})
+        if out:
+            return render_template('one record updated successfully!')
     return render_template('update.html')
 
 @app.route("/showrecord", methods=["GET"])
@@ -52,4 +63,4 @@ def showrecord():
         out.append(o)
     return render_template("show.html",output=out)
 
-app.run(debug=True, host="10.160.0.6")
+app.run(debug=True, host="0.0.0.0")

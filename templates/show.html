@@ -7,12 +7,12 @@
 <hr>
 <table>
     <tr>
-        <th>Name</th>
-        <th>Class</th>
-        <th>Roll No</th>
-        <th>Gender</th>
-        <th>college</th>
-        <th>Contact</th>
+        <th>student name</th>
+        <th>student class</th>
+        <th>student roll no</th>
+        <th>student gender</th>
+        <th>student college</th>
+        <th>student contact</th>
     </tr>
     <hr>
     {% for out in output %}
@@ -28,7 +28,7 @@
             <button><a href="{{url_for('deleterecord',obj_id=out['student name'])}}">Delete</a></button>
         </td>
         <td>
-            <button><a href="{{url_for('updaterecord',obj_id=out['student name'])}}">Update</a></button>
+            <button><a href="{{url_for('updaterecord')}}">Update</a></button>
         </td>
     </tr>
     {%endfor%}

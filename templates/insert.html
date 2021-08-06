@@ -30,5 +30,8 @@
     <button type="submit">Submit</button>
 </form>
 
+{% if message!="" %}
+<br><p><strong>{{message}}</strong></p>
+{% endif %}
 
 {% endblock %}
